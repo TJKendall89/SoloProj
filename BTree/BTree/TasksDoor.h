@@ -9,15 +9,6 @@ struct DoorStatus {
 	bool atDoor;
 };
 
-class LeafNode : public Node
-{
-public:
-	virtual void addChild(Node* child) override
-	{
-		std::cout << "Error: can't add child to leaf";
-	}
-};
-
 class CheckIfDoorIsOpenTask : public LeafNode 
 {  // Each task will be a class derived from Node
 private:

@@ -15,8 +15,10 @@
 
 
 DoorStatus* doorStatus = new DoorStatus{ false, true, false };
-Status* world = new Status{ false, 0 , 0 };
-Area* area = new Area{ 2, false, true, true };
+
+Status* world = new Status{ 0, 0 };
+Area* zone = new Area{ 2, false, true, true };
+
 std::map <int, Node*> behaveMap;
 
 
@@ -175,19 +177,19 @@ void CParseLevel::EntitiesStartElt( const string& eltName, SAttribute* attrs )
 			}
 			else if (m_NodeName == "Update")
 			{
-				behaveMap[m_Key] = new Update(area);
+				behaveMap[m_Key] = new Update(zone, world);
 			}
 			else if (m_NodeName == "Check")
 			{
-				behaveMap[m_Key] = new CheckForFood(area);
+				behaveMap[m_Key] = new CheckForFood(zone, world);
 			}
 			else if (m_NodeName == "Search")
 			{
-				behaveMap[m_Key] = new FindFood(area);
+				behaveMap[m_Key] = new FindFood(zone);
 			}
 			else if (m_NodeName == "Eat")
 			{
-				behaveMap[m_Key] = new ConsumeFood(area);
+				behaveMap[m_Key] = new ConsumeFood(zone, world);
 			}
 
 		}	

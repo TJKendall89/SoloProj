@@ -15,8 +15,8 @@
     <Entity Type="Selector" Name="Seq2" Parent="1" Key="4"></Entity>
 
     <!-- Depth 3 -->
-    <Entity Type="Leaf" Name="Search" Parent ="3" Key="5"></Entity>
-    <Entity Type="Leaf" Name="Eat" Parent ="3" Key="6"></Entity>
+    <Entity Type="Leaf" Name="Search" Parent ="4" Key="5"></Entity>
+    <Entity Type="Leaf" Name="Eat" Parent ="4" Key="6"></Entity>
 
     <!-- Depth 4 -->
 

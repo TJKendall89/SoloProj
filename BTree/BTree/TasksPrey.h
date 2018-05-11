@@ -4,7 +4,6 @@
 #include "nodes.h"
 
 struct Status {
-	bool started;
 	int days;
 	int daysHungry;
 };
@@ -16,22 +15,13 @@ struct Area {
 	bool hasHidingSpots;
 };
 
-//class LeafNode : public Node
-//{
-//public:
-//	virtual void addChild(Node* child) override
-//	{
-//		std::cout << "Error: can't add child to leaf";
-//	}
-//};
-
 class CheckForFood : public LeafNode
 {  // Each task will be a class derived from Node
 private:
 	Area* zone;
 	Status* world;
 public:
-	CheckForFood(Area* status) : zone(status) {}
+	CheckForFood(Area* status, Status* world) : zone(status), world(world) {}
 	virtual bool run() override
 	{
 		if (zone->richness > 0)
@@ -68,7 +58,7 @@ public:
 
 		if (zone->richInFood)
 		{
-			std::cout << "Area is rich enough in food to stay";  // will return true
+			std::cout << " New zone is rich enough in food to stay";  // will return true
 			if (zone->safe)
 			{
 				std::cout << " and area is safe" << std::endl;
@@ -91,10 +81,10 @@ public:
 class ConsumeFood : public LeafNode
 {  
 private:
-	Area * zone;
+	Area* zone;
 	Status* world;
 public:
-	ConsumeFood(Area* status) : zone(status) {}
+	ConsumeFood(Area* status, Status* world) : zone(status), world(world) {}
 	virtual bool run() override
 	{
 		if (zone->safe)
@@ -120,43 +110,37 @@ public:
 class Update : public LeafNode
 {  
 private:
-	Area* status;
+	Area* zone;
 	Status* world;
 public:
-	Update(Area* status) : status(status) {}
+	Update(Area* status, Status* world) : zone(status), world(world){}
 	virtual bool run() override
 	{
-		//if (!world->started)
-		//{
-		//	world->days = 0;
-		//	world->daysHungry = 0;
-		//	world->started = true;
-		//}
-
 		world->days++;
 		std::cout << "Days passed: " << world->days << std::endl;
 
 		std::cin.get();
 
 		if (world->days == 6)
-			status->richness = 2;
+			zone->richness = 2;
 
 
 		if (world->days == 10)
 		{
-			status->richness = 3;
-			status->safe = false;
+			zone->richness = 3;
+			zone->safe = false;
 		}
 
 		if (world->days == 12)
-			status->safe = true;
+			zone->safe = true;
 
 		if (world->days == 15)
-			status->safe = false;
+			zone->safe = false;
 
 		if (world->daysHungry > 7)
 		{
 			std::cout << "Died" << std::endl;
+			
 		}
 		return true;
 	}

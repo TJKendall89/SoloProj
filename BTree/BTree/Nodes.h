@@ -10,6 +10,17 @@ public:
 	virtual void addChild(Node* child) = 0;
 };
 
+class LeafNode : public Node
+	{
+	public:
+		virtual void addChild(Node* child) override
+		{
+			std::cout << "Error: can't add child to leaf" << std::endl;
+		}
+	};
+
+
+
 class CompositeNode : public Node
 {  //  This type of Node follows the Composite Pattern, containing a list of other Nodes.
 private:
