@@ -1,0 +1,12 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppClean.targets(76,5): warning : Access to the path 'c:\users\tjkendall\desktop\btree\debug\btree.exe' is denied.
+  Utility.cpp
+  MSDefines.cpp
+  main.cpp
+c:\users\tjkendall\desktop\btree\btree\tasksdoor.h(120): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  CParseXML.cpp
+  CParseLevel.cpp
+c:\users\tjkendall\desktop\btree\btree\tasksdoor.h(120): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  CFatalException.cpp
+  Generating Code...
+c:\users\tjkendall\desktop\btree\btree\tasksdoor.h(137): warning C4715: 'UnlockDoorTask::run': not all control paths return a value
+LINK : fatal error LNK1104: cannot open file 'C:\Users\tjkendall\Desktop\BTree\Debug\BTree.exe'
