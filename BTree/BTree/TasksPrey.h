@@ -139,8 +139,7 @@ public:
 
 		if (world->daysHungry > 7)
 		{
-			std::cout << "Died" << std::endl;
-			
+			std::cout << "Died" << std::endl;			
 		}
 		return true;
 	}
