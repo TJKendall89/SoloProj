@@ -4,6 +4,7 @@
 #include "nodes.h"
 
 struct Status {
+	
 	int days;
 	int daysHungry;
 };
@@ -50,30 +51,35 @@ class FindFood : public LeafNode
 {  // Each task will be a class derived from Node
 private:
 	Area * zone;
+	bool running = true;
 public:
 	FindFood(Area* status) : zone(status) {}
 	virtual bool run() override
 	{
-		std::cout << "Travelling..." << std::endl;
-
-		if (zone->richInFood)
+		while (running)
 		{
-			std::cout << " New zone is rich enough in food to stay";  // will return true
-			if (zone->safe)
+			std::cout << "Travelling..." << std::endl;
+
+			if (zone->richInFood)
 			{
-				std::cout << " and area is safe" << std::endl;
-				return true;
+				std::cout << " New zone is rich enough in food to stay";  // will return true
+				if (zone->safe)
+				{
+					std::cout << " and area is safe" << std::endl;
+					running = false;
+					return true;
+				}
+				else
+				{
+					std::cout << " but area is not safe" << std::endl;
+					running = false;
+					return false;
+				}
 			}
 			else
 			{
-				std::cout << " but area is not safe" << std::endl;
-				return false;
+				std::cout << "No food, Searching..." << std::endl;  // will return false
 			}
-		}
-		else
-		{
-			std::cout << "No food, Searching..." << std::endl;  // will return false
-			return false;
 		}
 	}
 };
