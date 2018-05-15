@@ -152,6 +152,7 @@
     <ClInclude Include="MSDefines.h" />
     <ClInclude Include="Nodes.h" />
     <ClInclude Include="TasksDoor.h" />
+    <ClInclude Include="TasksGuard.h" />
     <ClInclude Include="TasksPrey.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>

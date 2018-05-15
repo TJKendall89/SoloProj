@@ -1,6 +1,4 @@
 #pragma once
-#include <ctime>
-
 #include "nodes.h"
 
 struct Status {
@@ -21,28 +19,32 @@ class CheckForFood : public LeafNode
 private:
 	Area* zone;
 	Status* world;
+	bool running = true;
 public:
 	CheckForFood(Area* status, Status* world) : zone(status), world(world) {}
 	virtual bool run() override
 	{
-		if (zone->richness > 0)
-			zone->richInFood = true;
-		else
-			zone->richInFood = false;
+		
 
-		if (zone->richInFood)
-		{
-			std::cout << "Area is rich enough in food to stay" << std::endl;
-			return true;
-		}
-		else
-		{
-			std::cout << "No food, Searching..." << std::endl;
-			world->daysHungry++;
-			std::cout << "Days hungry: " << world->daysHungry << std::endl;
-			return false;
-		}
+			if (zone->richness > 0)
+				zone->richInFood = true;
+			else
+				zone->richInFood = false;
 
+			if (zone->richInFood)
+			{
+				std::cout << "Area is rich enough in food to stay" << std::endl;
+				return true;
+			}
+			else
+			{
+				std::cout << "No food, Searching..." << std::endl;
+				world->daysHungry++;
+				std::cout << "Days hungry: " << world->daysHungry << std::endl;
+				
+
+			}
+		
 
 	}
 };
@@ -78,7 +80,7 @@ public:
 			}
 			else
 			{
-				std::cout << "No food, Searching..." << std::endl;  // will return false
+				std::cout << "No food, Searching..." << std::endl;			 
 			}
 		}
 	}
@@ -89,25 +91,28 @@ class ConsumeFood : public LeafNode
 private:
 	Area* zone;
 	Status* world;
+	bool running = true;
 public:
 	ConsumeFood(Area* status, Status* world) : zone(status), world(world) {}
 	virtual bool run() override
 	{
-		if (zone->safe)
+		while (running)
 		{
-			std::cout << "Consuming food" << std::endl;
-			zone->richness--;
-			
-			if(world->daysHungry > 0)
-				world->daysHungry = 0;
-			
-			std::cout << "Food amount: " << zone->richness << std::endl;
-			return true;
-		}
-		else
-		{
-			std::cout << "Danger afoot, moving..." << std::endl;
-			return false;
+			if (zone->safe)
+			{
+				std::cout << "Consuming food" << std::endl;
+				zone->richness--;
+
+				if (world->daysHungry > 0)
+					world->daysHungry = 0;
+
+				std::cout << "Food amount: " << zone->richness << std::endl;
+			}
+			else
+			{
+				std::cout << "Danger afoot, moving..." << std::endl;
+				return false;
+			}
 		}
 	}
 };

@@ -17,7 +17,7 @@
 DoorStatus* doorStatus = new DoorStatus{ false, true, false };
 
 Status* world = new Status{ 0, 0 };
-Area* zone = new Area{ 2, false, true, true };
+Area* zone = new Area{ 0, false, true, true };
 
 std::map <int, Node*> behaveMap;
 
