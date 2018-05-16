@@ -2,15 +2,14 @@
 #include "nodes.h"
 
 struct Status {
+	bool foundWaypoint;
 
-	int days;
-	int daysHungry;
 };
 
 class FindWaypoint : public LeafNode
 {  // Each task will be a class derived from Node
 private:
-	Status* world;
+	Status* guard;
 	bool running = true;
 public:
 	FindWaypoint(Status* world) : zone(status){}
