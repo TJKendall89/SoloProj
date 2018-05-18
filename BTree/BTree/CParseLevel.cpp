@@ -12,12 +12,15 @@
 #include "CParseLevel.h"
 #include "TasksDoor.h"
 #include "TasksPrey.h"
+#include "TasksGuard.h"
 
 
 DoorStatus* doorStatus = new DoorStatus{ false, true, false };
 
 Status* world = new Status{ 0, 0 };
 Area* zone = new Area{ 0, false, true, true };
+
+Guard* info = new Guard{ true, true, 10 };
 
 std::map <int, Node*> behaveMap;
 
@@ -191,7 +194,22 @@ void CParseLevel::EntitiesStartElt( const string& eltName, SAttribute* attrs )
 			{
 				behaveMap[m_Key] = new ConsumeFood(zone, world);
 			}
-
+			else if (m_NodeName == "Find")
+			{
+				behaveMap[m_Key] = new FindWaypoint(info);
+			}
+			else if (m_NodeName == "RA")
+			{
+				behaveMap[m_Key] = new RouteA(info);
+			}
+			else if (m_NodeName == "RB")
+			{
+				behaveMap[m_Key] = new RouteB(info);
+			}
+			else if (m_NodeName == "Arrive")
+			{
+				behaveMap[m_Key] = new Arrived(info);
+			}
 		}	
 		behaveMap[m_ParentKey]->addChild(behaveMap[m_Key]);
 	}

@@ -19,8 +19,6 @@ class LeafNode : public Node
 		}
 	};
 
-
-
 class CompositeNode : public Node
 {  //  This type of Node follows the Composite Pattern, containing a list of other Nodes.
 private:

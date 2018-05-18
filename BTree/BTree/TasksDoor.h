@@ -98,33 +98,43 @@ public:
 class UnlockDoorTask : public LeafNode {
 private:
 	DoorStatus* status;
+	bool running = true;
 public:
 	UnlockDoorTask(DoorStatus* status) : status(status) {}
 	virtual bool run() override 
 	{
-		if (status->atDoor)
+		int tries = 0;
+		while (running)
 		{
-			if (status->doorIsLocked)
+			tries++;
+			if (status->atDoor)
 			{
-				std::cout << "Attempting to unlock..." << std::endl;
-				
-				srand(time(NULL));
-				int chance = rand() % 100;
-			
-				if (chance > 50) 
+				if (status->doorIsLocked)
 				{
-					std::cout << "Success!" << std::endl;
-					status->doorIsLocked = false;
-					return true;
-				}
-				else
-				{
-					std::cout << "Failed!" << std::endl;
-					status->doorIsLocked = true;
-					return false;
+					std::cout << "Attempting number: " << tries << " to unlock..." << std::endl;
+
+					srand(time(NULL));
+					int chance = rand() % 100;
+
+					if (chance > 50)
+					{
+						std::cout << "Success!" << std::endl;
+						status->doorIsLocked = false;
+						return true;
+					}
+					else
+					{
+						std::cout << "Failed!" << std::endl;
+						status->doorIsLocked = true;
+						
+					}
+					if (tries > 2)
+					{
+						return false;
+					}
 				}
 			}
-		}		
+		}
 	}
 };
 

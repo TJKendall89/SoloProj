@@ -55,7 +55,8 @@ void main()
 	//}
 
 	//levelParser.ParseFile("Entities.xml");
-	levelParser.ParseFile("Entities2.xml");
+	//levelParser.ParseFile("Entities2.xml");
+	levelParser.ParseFile("Entities3.xml");
 
 	while (!root->run())
 	{

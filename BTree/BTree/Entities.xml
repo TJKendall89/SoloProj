@@ -12,7 +12,7 @@
     <!-- Depth 2 -->
     <Entity Type="Leaf" Name="Approach" Parent="1" Key="2"></Entity>
     <Entity Type="Selector" Name="Sel1" Parent="1" Key="3"></Entity>
-      <Entity Type="Leaf" Name="Enter" Parent ="1" Key="4"></Entity>
+    <Entity Type="Leaf" Name="Enter" Parent ="1" Key="4"></Entity>
 
     <!-- Depth 3 -->
        <Entity Type="Leaf" Name="Open" Parent ="3" Key="5"></Entity>

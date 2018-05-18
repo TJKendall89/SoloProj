@@ -1,11 +1,10 @@
 ﻿  CParseLevel.cpp
-c:\users\tomkat\documents\github\soloproj\btree\btree\tasksdoor.h(111): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  main.cpp
-c:\users\tomkat\documents\github\soloproj\btree\btree\tasksdoor.h(111): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
-c:\users\tomkat\documents\github\soloproj\btree\btree\tasksdoor.h(128): warning C4715: 'UnlockDoorTask::run': not all control paths return a value
-c:\users\tomkat\documents\github\soloproj\btree\btree\tasksprey.h(50): warning C4715: 'CheckForFood::run': not all control paths return a value
-c:\users\tomkat\documents\github\soloproj\btree\btree\tasksprey.h(87): warning C4715: 'FindFood::run': not all control paths return a value
-c:\users\tomkat\documents\github\soloproj\btree\btree\tasksprey.h(120): warning C4715: 'ConsumeFood::run': not all control paths return a value
+c:\users\tomkat\documents\github\soloproj\btree\btree\tasksdoor.h(116): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\tomkat\documents\github\soloproj\btree\btree\tasksdoor.h(138): warning C4715: 'UnlockDoorTask::run': not all control paths return a value
+c:\users\tomkat\documents\github\soloproj\btree\btree\tasksprey.h(49): warning C4715: 'CheckForFood::run': not all control paths return a value
+c:\users\tomkat\documents\github\soloproj\btree\btree\tasksprey.h(86): warning C4715: 'FindFood::run': not all control paths return a value
+c:\users\tomkat\documents\github\soloproj\btree\btree\tasksguard.h(57): warning C4715: 'RouteA::run': not all control paths return a value
+c:\users\tomkat\documents\github\soloproj\btree\btree\tasksprey.h(117): warning C4715: 'ConsumeFood::run': not all control paths return a value
+c:\users\tomkat\documents\github\soloproj\btree\btree\tasksguard.h(86): warning C4715: 'RouteB::run': not all control paths return a value
   BTree.vcxproj -> C:\Users\Tomkat\Documents\GitHub\SoloProj\BTree\Debug\BTree.exe
           1 file(s) copied.
