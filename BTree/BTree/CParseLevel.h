@@ -36,7 +36,7 @@ class CParseLevel : public CParseXML
 ---------------------------------------------------------------------------------------------*/
 public:
 	// Constructor gets a pointer to the entity manager and initialises state variables
-	CParseLevel( Node* entityManager );
+	CParseLevel( Node* root, Node* root2 );
 
 	
 /*-----------------------------------------------------------------------------------------
@@ -107,6 +107,7 @@ private:
 	// Constructer is passed a pointer to an entity manager used to create templates and
 	// entities as they are parsed
 	Node* m_Root;
+	Node* m_RootAux;
 	int m_Scenario;
 	
 	// File state

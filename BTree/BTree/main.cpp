@@ -3,8 +3,6 @@
 #include <sstream>
 #include <list>
 
-#include "TasksDoor.h"
-#include "TasksPrey.h"
 #include "CParseLevel.h"
 
 int selection = 0;
@@ -13,8 +11,9 @@ bool isRunning = true;
 gen::CParseXML parseFile;
 
 Node* root = new Sequence();
+Node* rootAux = new Sequence();
 
-gen::CParseLevel levelParser(root);
+gen::CParseLevel levelParser(root, rootAux);
 
 // Behaviour tree that models the behaviour of a person whose goal is to open a door.
 
@@ -54,12 +53,19 @@ void main()
 	//	std::cout << "-----------------------------" << std::endl;
 	//}
 
-	//levelParser.ParseFile("Entities.xml");
-	//levelParser.ParseFile("Entities2.xml");
-	levelParser.ParseFile("Entities3.xml");
+	levelParser.ParseFile("DoorTasks.xml");
+	//levelParser.ParseFile("AnimalTasks.xml");
+	//levelParser.ParseFile("GuardTasks.xml");
 
 	while (!root->run())
 	{
+	
+
+		/*while (!rootAux->run())
+		{
+
+		}*/
+
 		std::cout << "--------------------" << std::endl;
 	}
 	std::cout << std::endl << "Operation complete.  Behaviour tree exited." << std::endl;

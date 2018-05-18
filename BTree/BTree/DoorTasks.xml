@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!-- Level Setup -->
+<Level>
+  
+  <!-- Scene Setup -->
+  <Entities>
+    
+    <!-- Nodes -->
+
+    <!--Key starts at 2, Main node and Subnode are 0 & 1 respectivley-->
+    
+    <!-- Depth 1 -->
+    <Entity Type="Sequence" Name="Seq1" Parent="0" Key="2"></Entity>
+
+    <!-- Depth 2 -->
+    <Entity Type="Leaf" Name="Approach" Parent="2" Key="3"></Entity>
+    <Entity Type="Selector" Name="Sel1" Parent="2" Key="4"></Entity>
+    <Entity Type="Leaf" Name="Enter" Parent ="2" Key="5"></Entity>
+
+    <!-- Depth 3 -->
+         <Entity Type="Leaf" Name="Open" Parent ="4" Key="6"></Entity>
+    <Entity Type="Sequence" Name="Seq2" Parent = "4" Key="7"></Entity>
+        <Entity Type="Leaf" Name="Smash" Parent ="4" Key="8"></Entity>
+
+    <!-- Depth 4 -->
+    <Entity Type="Leaf" Name="Unlock" Parent ="7" Key="9"></Entity>
+       <Entity Type="Leaf" Name="Open" Parent="7" Key="10"></Entity>
+
+
+  </Entities>
+  <!-- End of Scene Setup -->
+
+</Level>

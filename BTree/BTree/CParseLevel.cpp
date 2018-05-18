@@ -33,13 +33,15 @@ namespace gen
 ---------------------------------------------------------------------------------------------*/
 
 // Constructor initialises state variables
-CParseLevel::CParseLevel( Node* root)
+CParseLevel::CParseLevel( Node* root, Node* root2)
 {
 	// Take copy of entity manager for creation
 	m_Root = root;
+	m_RootAux = root2;
 	m_Scenario = 0;
 	behaveMap.clear();
 	behaveMap[0] = m_Root;
+	behaveMap[1] = m_RootAux;
 
 	// File state
 	m_CurrentSection = None;
